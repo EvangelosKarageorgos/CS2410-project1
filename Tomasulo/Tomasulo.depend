@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1537306730 source:d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\cpu\cpu.c
+	"../Global/TomasuloSimulator.h"
+
+1537307065 d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\global\tomasulosimulator.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"./DataTypes.h"
+	"./ADT/CircularQueue.h"
+	"./ADT/Dictionary.h"
+
+1537304652 d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\global\datatypes.h
+	"./ADT/CircularQueue.h"
+	"./ADT/Dictionary.h"
+
+1444453297 d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\global\adt\circularqueue.h
+	<stdio.h>
+	<stdlib.h>
+
+1444430558 d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\global\adt\dictionary.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1537247435 source:d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\global\utils\printutility.c
+	"../TomasuloSimulator.h"
+
+1538060833 source:d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\tomasulosimulator.c
+	"./Global/TomasuloSimulator.h"
+
+1538061697 source:d:\mydata\pitt\projects\computer architecture\project1\cs2410-project1\tomasulo\cacheemulator\emulatecache.c
+	"../Global/TomasuloSimulator.h"
+
