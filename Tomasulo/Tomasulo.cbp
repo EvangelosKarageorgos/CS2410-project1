@@ -32,7 +32,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="CPU/CPU.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="CacheEmulator/EmulateCache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Global/ADT/CircularQueue.h" />
+		<Unit filename="Global/ADT/Dictionary.h" />
+		<Unit filename="Global/DataTypes.h" />
+		<Unit filename="Global/TomasuloSimulator.h" />
+		<Unit filename="Global/Utils/PrintUtility.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="TomasuloSimulator.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
