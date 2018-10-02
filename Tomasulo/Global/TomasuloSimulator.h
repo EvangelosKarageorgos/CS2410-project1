@@ -26,9 +26,9 @@
 #define MEMORY_LABEL "Mem"
 #define MEMORY_SEPARATOR " )(=\n"
 
-#define MAX_LINE  4096
 
-//global variables populated from configuration 
+
+//global variables populated from configuration
 int numberOfIntRegisters; //NIR
 int numberOfFPRegisters; //NFPR
 
@@ -37,6 +37,8 @@ int instructionCacheBaseAddress; //ICBA
 int cacheLineSize; //CLS
 
 int numberOfInstruction;
+
+config configuration;
 
 Dictionary *instructionCache;
 Dictionary *dataCache;
@@ -50,6 +52,16 @@ void fillInstructionAndDataCache (char *fileName);
 void initializeCPU ();
 
 int runClockCycle ();
+
+int initialize_IF(IF_UNIT *IF_unit);
+int runClockCycle_IF(IF_UNIT *IF_unit);
+
+int initialize_ID(ID_UNIT *ID_unit);
+int runClockCycle_ID(ID_UNIT *ID_unit, IF_UNIT *IF_unit);
+
+int initialize_FPadd(FPadd_UNIT *FPadd_unit);
+int runClockCycle_FPadd(FPadd_UNIT *FPadd_unit, ID_UNIT *ID_unit);
+
 
 void printInstructionCache ();
 void printCodeLabels ();

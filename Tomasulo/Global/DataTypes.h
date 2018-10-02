@@ -10,6 +10,15 @@
 
 #include "./ADT/CircularQueue.h"
 #include "./ADT/Dictionary.h"
+#define MAX_LINE  4096
+
+typedef struct _config{
+    int NF; // fetched instructions
+    int NI; // instruction queue length
+    int NW; // issued instructions
+    int NR; // reorder buffer size
+    int NB; // number of cdb buses
+}config;
 
 typedef enum _opCode {
 	AND,
@@ -66,6 +75,9 @@ typedef struct _instruction {
 
 	int target;
 
+	int is_valid;
+
+
 } Instruction;
 
 //data structure for each item in integer registers and work as well register status
@@ -92,7 +104,7 @@ typedef struct _cpu {
 	INTReg **integerRegisters; //integer register
         FPReg **floatingPointRegisters; //FP registers
 
-	int memoryAddress;	
+	int memoryAddress;
 
 	int intDestReg;
         int intResult;
@@ -101,5 +113,48 @@ typedef struct _cpu {
         double fpResult;
 
 } CPU;
+
+typedef struct _BTB_entry{
+    int target_address;
+    int taken;
+    int valid;
+}BTB_entry;
+
+typedef struct _IF_INSTR_entry{
+    char instr[MAX_LINE];
+    int target_address;
+    int taken;
+    //int valid;
+}IF_Instr_entry;
+
+
+
+typedef struct _Reserv{
+    Instruction *instruction;
+
+}ReservationStation;
+
+
+typedef struct _IF_UNIT{
+    int PC;
+    IF_Instr_entry instructions[32];
+    int n_instructions;
+    //char instructions[32][MAX_LINE];
+    //BTB_entry* instr_btb[32];
+    BTB_entry BTB[16];
+}IF_UNIT;
+
+
+typedef struct _ID_UNIT{
+    Instruction* instructionQueue[32];
+
+    Instruction** instructions;
+    int n_instructions;
+}ID_UNIT;
+
+
+typedef struct _FPadd_UNIT{
+
+}FPadd_UNIT;
 
 #endif /* GLOBAL_DATATYPES_H_ */
