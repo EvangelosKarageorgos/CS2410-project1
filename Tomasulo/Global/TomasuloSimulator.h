@@ -41,7 +41,7 @@ int numberOfInstruction;
 Dictionary *instructionCache;
 Dictionary *dataCache;
 Dictionary *codeLabels;
-Dictinary *BTB;
+Dictionary *BTB;
 CircularQueue *instructionQueue;
 CircularQueue *ROB;
 
