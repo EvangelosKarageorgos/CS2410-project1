@@ -4,10 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../CPU/CPU.c 
+../CPU/CPU.c
+
+C_SRCS += \
+../CPU/ReadConfig.c
 
 OBJS += \
-./CPU/CPU.o 
+./CPU/CPU.o
+
+OBJS += \
+./CPU/ReadConfig.o
 
 C_DEPS += \
 ./CPU/CPU.d 
