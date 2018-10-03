@@ -26,7 +26,7 @@
 #define MEMORY_LABEL "Mem"
 #define MEMORY_SEPARATOR " )(=\n"
 
-
+#define MAX_LINE  4096
 
 //global variables populated from configuration
 int numberOfIntRegisters; //NIR
@@ -38,30 +38,28 @@ int cacheLineSize; //CLS
 
 int numberOfInstruction;
 
-config configuration;
-
 Dictionary *instructionCache;
 Dictionary *dataCache;
 Dictionary *codeLabels;
+Dictinary *BTB;
+CircularQueue *instructionQueue;
+CircularQueue *ROB;
 
 
 CPU *cpu;
+Config *config;
+IF_Unit *if_unit;
+ID_Unit *id_unit;
+EX_Unit *ex_unit;
+WB_Unit *wb_unit;
+
+
 
 void fillInstructionAndDataCache (char *fileName);
 
 void initializeCPU ();
 
 int runClockCycle ();
-
-int initialize_IF(IF_UNIT *IF_unit);
-int runClockCycle_IF(IF_UNIT *IF_unit);
-
-int initialize_ID(ID_UNIT *ID_unit);
-int runClockCycle_ID(ID_UNIT *ID_unit, IF_UNIT *IF_unit);
-
-int initialize_FPadd(FPadd_UNIT *FPadd_unit);
-int runClockCycle_FPadd(FPadd_UNIT *FPadd_unit, ID_UNIT *ID_unit);
-
 
 void printInstructionCache ();
 void printCodeLabels ();

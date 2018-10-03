@@ -10,15 +10,6 @@
 
 #include "./ADT/CircularQueue.h"
 #include "./ADT/Dictionary.h"
-#define MAX_LINE  4096
-
-typedef struct _config{
-    int NF; // fetched instructions
-    int NI; // instruction queue length
-    int NW; // issued instructions
-    int NR; // reorder buffer size
-    int NB; // number of cdb buses
-}config;
 
 typedef enum _opCode {
 	AND,
@@ -77,7 +68,6 @@ typedef struct _instruction {
 
 	int is_valid;
 
-
 } Instruction;
 
 //data structure for each item in integer registers and work as well register status
@@ -114,47 +104,70 @@ typedef struct _cpu {
 
 } CPU;
 
-typedef struct _BTB_entry{
+typedef struct _config {
+    int NF; // fetched instructions
+    int NI; // instruction queue length
+    int NW; // issued instructions
+    int NR; // reorder buffer size
+    int NB; // number of cdb buses
+} Config;
+
+typedef struct _BTB_value{
     int target_address;
     int taken;
-    int valid;
-}BTB_entry;
+} BTB_value;
 
-typedef struct _IF_INSTR_entry{
-    char instr[MAX_LINE];
-    int target_address;
-    int taken;
-    //int valid;
-}IF_Instr_entry;
+typedef struct _IFUnit {
+	IF_Instr_entry instructions[32];
+	int n_instructions;
+	//char instructions[32][MAX_LINE];
+	//BTB_entry* instr_btb[32];
+} IF_Unit;
 
+typedef struct _IDUnit {
+	Instruction** instructionQueue;
+	Instruction** instructions;
+	int n_instructions;
+} ID_Unit;
 
+typedef struct _EXUnit {
 
-typedef struct _Reserv{
-    Instruction *instruction;
+} EX_Unit;
 
-}ReservationStation;
+typedef struct _MEMUnit {
 
+} MEM_Unit;
 
-typedef struct _IF_UNIT{
-    int PC;
-    IF_Instr_entry instructions[32];
-    int n_instructions;
-    //char instructions[32][MAX_LINE];
-    //BTB_entry* instr_btb[32];
-    BTB_entry BTB[16];
-}IF_UNIT;
+typedef struct _WBUnit {
 
+} WB_Unit;
 
-typedef struct _ID_UNIT{
-    Instruction* instructionQueue[32];
+typedef struct INT_Unit {
 
-    Instruction** instructions;
-    int n_instructions;
-}ID_UNIT;
+} INT;
 
+typedef struct MULT_Unit {
 
-typedef struct _FPadd_UNIT{
+} MULT;
 
-}FPadd_UNIT;
+typedef struct LOAD_STORE {
+
+} LS;
+
+typedef struct FPADD_Unit {
+
+} FPADD;
+
+typedef struct FPMULT_Unit {
+
+} FPMULT;
+
+typedef struct FPDIV_Unit {
+
+} FPDIV;
+
+typedef struct BU_UNIT {
+
+} BU;
 
 #endif /* GLOBAL_DATATYPES_H_ */
