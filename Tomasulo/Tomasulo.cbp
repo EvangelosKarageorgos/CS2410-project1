@@ -35,6 +35,12 @@
 		<Unit filename="CPU/CPU.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="CPU/InstructionFetch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="CPU/ReadConfig.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="CacheEmulator/EmulateCache.c">
 			<Option compilerVar="CC" />
 		</Unit>
